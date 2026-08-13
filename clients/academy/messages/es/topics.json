@@ -1,0 +1,148 @@
+{
+  "topicQuestions": {
+    "Algebra": {
+      "q1": "¿Qué son las variables y cómo las uso?",
+      "q2": "¿Cómo resuelvo para x en una ecuación?",
+      "q3": "Explícame las ecuaciones lineales",
+      "q4": "Muéstrame cómo factorizar polinomios"
+    },
+    "Geometry": {
+      "q1": "¿Cuáles son las formas básicas y sus propiedades?",
+      "q2": "¿Cómo calculo el área y el perímetro?",
+      "q3": "Explícame los ángulos y cómo medirlos",
+      "q4": "Enséñame sobre triángulos y sus reglas"
+    },
+    "Calculus": {
+      "q1": "¿Qué es una derivada y por qué es útil?",
+      "q2": "¿Cómo encuentro los límites de funciones?",
+      "q3": "Explícame la integración",
+      "q4": "Muéstrame cómo resolver problemas de tasa de cambio"
+    },
+    "Statistics": {
+      "q1": "¿Qué es la media, mediana y moda?",
+      "q2": "¿Cómo calculo la probabilidad?",
+      "q3": "Explícame la desviación estándar",
+      "q4": "Muéstrame cómo interpretar gráficos de datos"
+    },
+    "Trigonometry": {
+      "q1": "¿Qué son el seno, coseno y tangente?",
+      "q2": "¿Cómo uso el círculo unitario?",
+      "q3": "Explícame las identidades trigonométricas",
+      "q4": "Muéstrame cómo resolver problemas de triángulos"
+    },
+    "NumberTheory": {
+      "q1": "¿Qué son los números primos?",
+      "q2": "¿Cómo encuentro factores y múltiplos?",
+      "q3": "Explícame las reglas de divisibilidad",
+      "q4": "Muéstrame patrones en los números"
+    },
+    "Grammar": {
+      "q1": "¿Cuáles son las partes del discurso?",
+      "q2": "¿Cómo uso las comas correctamente?",
+      "q3": "Explícame los tiempos verbales",
+      "q4": "Muéstrame cómo corregir fragmentos de oraciones"
+    },
+    "Writing": {
+      "q1": "¿Cómo escribo un párrafo fuerte?",
+      "q2": "¿Qué hace una buena declaración de tesis?",
+      "q3": "Explícame las diferentes estructuras de ensayos",
+      "q4": "Muéstrame cómo mejorar mi estilo de escritura"
+    },
+    "ReadingComprehension": {
+      "q1": "¿Cómo identifico la idea principal?",
+      "q2": "¿Qué son las pistas de contexto?",
+      "q3": "Explícame cómo hacer inferencias",
+      "q4": "Muéstrame cómo resumir un pasaje"
+    },
+    "Vocabulary": {
+      "q1": "¿Cómo puedo aprender nuevas palabras efectivamente?",
+      "q2": "¿Qué son las raíces y los afijos?",
+      "q3": "Explícame sinónimos y antónimos",
+      "q4": "Muéstrame cómo usar palabras en contexto"
+    },
+    "Literature": {
+      "q1": "¿Cómo analizo una historia?",
+      "q2": "¿Qué son los recursos literarios?",
+      "q3": "Explícame temas y simbolismo",
+      "q4": "Muéstrame cómo entender poesía"
+    },
+    "CreativeWriting": {
+      "q1": "¿Cómo creo personajes interesantes?",
+      "q2": "¿Qué hace una buena trama?",
+      "q3": "Explícame los diferentes estilos de escritura",
+      "q4": "Muéstrame cómo escribir diálogos"
+    },
+    "CellBiology": {
+      "q1": "¿Qué es una célula y qué hace?",
+      "q2": "¿Cómo se dividen y reproducen las células?",
+      "q3": "Explícame las partes de una célula",
+      "q4": "Muéstrame la diferencia entre células vegetales y animales"
+    },
+    "Genetics": {
+      "q1": "¿Qué es el ADN y cómo funciona?",
+      "q2": "¿Cómo pasan los rasgos de padres a hijos?",
+      "q3": "Explícame genes dominantes y recesivos",
+      "q4": "Muéstrame cómo ocurren las mutaciones genéticas"
+    },
+    "Ecology": {
+      "q1": "¿Qué es un ecosistema?",
+      "q2": "¿Cómo funcionan las cadenas alimentarias?",
+      "q3": "Explícame el ciclo del agua",
+      "q4": "Muéstrame cómo interactúan los organismos"
+    },
+    "HumanBody": {
+      "q1": "¿Cómo funciona el sistema circulatorio?",
+      "q2": "¿Qué hacen los diferentes órganos?",
+      "q3": "Explícame cómo digerimos los alimentos",
+      "q4": "Muéstrame cómo el cerebro controla el cuerpo"
+    },
+    "Evolution": {
+      "q1": "¿Qué es la selección natural?",
+      "q2": "¿Cómo se adaptan las especies con el tiempo?",
+      "q3": "Explícame la evidencia de la evolución",
+      "q4": "Muéstrame ejemplos de adaptación"
+    },
+    "Microbiology": {
+      "q1": "¿Qué son las bacterias y los virus?",
+      "q2": "¿Cómo nos afectan los microorganismos?",
+      "q3": "Explícame el sistema inmunológico",
+      "q4": "Muéstrame cómo se propagan las enfermedades"
+    },
+    "Quran": {
+      "q1": "¿Cómo está organizado el Corán?",
+      "q2": "¿Cuáles son los temas principales del Corán?",
+      "q3": "Explícame cómo recitar con tajweed",
+      "q4": "Muéstrame el significado de una sura"
+    },
+    "Hadith": {
+      "q1": "¿Qué es un hadiz y por qué es importante?",
+      "q2": "¿Cómo verificamos los hadices auténticos?",
+      "q3": "Explícame las famosas colecciones de hadices",
+      "q4": "Muéstrame ejemplos de las enseñanzas del Profeta"
+    },
+    "Fiqh": {
+      "q1": "¿Cuáles son los pilares del Islam?",
+      "q2": "¿Cómo realizo el wudu correctamente?",
+      "q3": "Explícame las reglas de la oración",
+      "q4": "Muéstrame cómo calcular el zakat"
+    },
+    "IslamicHistory": {
+      "q1": "Cuéntame sobre la vida del Profeta Muhammad",
+      "q2": "¿Qué sucedió durante el califato temprano?",
+      "q3": "Explícame los imperios islámicos importantes",
+      "q4": "Muéstrame cómo se extendió el Islam por el mundo"
+    },
+    "Aqeedah": {
+      "q1": "¿Cuáles son los seis artículos de fe?",
+      "q2": "¿Cómo entendemos los atributos de Alá?",
+      "q3": "Explícame el concepto de tawhid",
+      "q4": "Muéstrame la importancia de la creencia"
+    },
+    "ArabicLanguage": {
+      "q1": "¿Cómo leo las letras árabes?",
+      "q2": "¿Cuáles son las palabras árabes básicas que debo conocer?",
+      "q3": "Explícame los fundamentos de la gramática árabe",
+      "q4": "Muéstrame cómo escribir en árabe"
+    }
+  }
+}

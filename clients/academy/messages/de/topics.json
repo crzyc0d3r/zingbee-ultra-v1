@@ -1,0 +1,148 @@
+{
+  "topicQuestions": {
+    "Algebra": {
+      "q1": "Was sind Variablen und wie benutze ich sie?",
+      "q2": "Wie lose ich x in einer Gleichung?",
+      "q3": "Erklare mir lineare Gleichungen",
+      "q4": "Zeig mir, wie man Polynome faktorisiert"
+    },
+    "Geometry": {
+      "q1": "Was sind die grundlegenden Formen und ihre Eigenschaften?",
+      "q2": "Wie berechne ich Flache und Umfang?",
+      "q3": "Erklare Winkel und wie man sie misst",
+      "q4": "Bring mir Dreiecke und ihre Regeln bei"
+    },
+    "Calculus": {
+      "q1": "Was ist eine Ableitung und warum ist sie nutzlich?",
+      "q2": "Wie finde ich Grenzwerte von Funktionen?",
+      "q3": "Erklare mir Integration",
+      "q4": "Zeig mir, wie man Anderungsraten-Aufgaben lost"
+    },
+    "Statistics": {
+      "q1": "Was sind Mittelwert, Median und Modus?",
+      "q2": "Wie berechne ich Wahrscheinlichkeit?",
+      "q3": "Erklare die Standardabweichung",
+      "q4": "Zeig mir, wie man Datendiagramme interpretiert"
+    },
+    "Trigonometry": {
+      "q1": "Was sind Sinus, Kosinus und Tangens?",
+      "q2": "Wie benutze ich den Einheitskreis?",
+      "q3": "Erklare trigonometrische Identitaten",
+      "q4": "Zeig mir, wie man Dreiecksaufgaben lost"
+    },
+    "NumberTheory": {
+      "q1": "Was sind Primzahlen?",
+      "q2": "Wie finde ich Teiler und Vielfache?",
+      "q3": "Erklare Teilbarkeitsregeln",
+      "q4": "Zeig mir Muster in Zahlen"
+    },
+    "Grammar": {
+      "q1": "Was sind die Wortarten?",
+      "q2": "Wie benutze ich Kommas richtig?",
+      "q3": "Erklare mir die Zeitformen der Verben",
+      "q4": "Zeig mir, wie man Satzfragmente korrigiert"
+    },
+    "Writing": {
+      "q1": "Wie schreibe ich einen guten Absatz?",
+      "q2": "Was macht eine gute These aus?",
+      "q3": "Erklare verschiedene Aufsatzstrukturen",
+      "q4": "Zeig mir, wie ich meinen Schreibstil verbessern kann"
+    },
+    "ReadingComprehension": {
+      "q1": "Wie erkenne ich die Hauptidee?",
+      "q2": "Was sind Kontexthinweise?",
+      "q3": "Erklare, wie man Schlussfolgerungen zieht",
+      "q4": "Zeig mir, wie man einen Text zusammenfasst"
+    },
+    "Vocabulary": {
+      "q1": "Wie kann ich neue Worter effektiv lernen?",
+      "q2": "Was sind Wortstamme und Affixe?",
+      "q3": "Erklare Synonyme und Antonyme",
+      "q4": "Zeig mir, wie man Worter im Kontext benutzt"
+    },
+    "Literature": {
+      "q1": "Wie analysiere ich eine Geschichte?",
+      "q2": "Was sind literarische Mittel?",
+      "q3": "Erklare Themen und Symbolik",
+      "q4": "Zeig mir, wie man Gedichte versteht"
+    },
+    "CreativeWriting": {
+      "q1": "Wie erschaffe ich interessante Charaktere?",
+      "q2": "Was macht eine gute Handlung aus?",
+      "q3": "Erklare verschiedene Schreibstile",
+      "q4": "Zeig mir, wie man Dialoge schreibt"
+    },
+    "CellBiology": {
+      "q1": "Was ist eine Zelle und was macht sie?",
+      "q2": "Wie teilen und vermehren sich Zellen?",
+      "q3": "Erklare die Teile einer Zelle",
+      "q4": "Zeig mir den Unterschied zwischen Pflanzen- und Tierzellen"
+    },
+    "Genetics": {
+      "q1": "Was ist DNA und wie funktioniert sie?",
+      "q2": "Wie werden Merkmale von Eltern an Kinder weitergegeben?",
+      "q3": "Erklare dominante und rezessive Gene",
+      "q4": "Zeig mir, wie genetische Mutationen entstehen"
+    },
+    "Ecology": {
+      "q1": "Was ist ein Okosystem?",
+      "q2": "Wie funktionieren Nahrungsketten?",
+      "q3": "Erklare den Wasserkreislauf",
+      "q4": "Zeig mir, wie Organismen interagieren"
+    },
+    "HumanBody": {
+      "q1": "Wie funktioniert das Kreislaufsystem?",
+      "q2": "Was machen die verschiedenen Organe?",
+      "q3": "Erklare, wie wir Nahrung verdauen",
+      "q4": "Zeig mir, wie das Gehirn den Korper steuert"
+    },
+    "Evolution": {
+      "q1": "Was ist naturliche Selektion?",
+      "q2": "Wie passen sich Arten im Laufe der Zeit an?",
+      "q3": "Erklare Beweise fur die Evolution",
+      "q4": "Zeig mir Beispiele fur Anpassung"
+    },
+    "Microbiology": {
+      "q1": "Was sind Bakterien und Viren?",
+      "q2": "Wie beeinflussen uns Mikroorganismen?",
+      "q3": "Erklare das Immunsystem",
+      "q4": "Zeig mir, wie sich Krankheiten ausbreiten"
+    },
+    "Quran": {
+      "q1": "Wie ist der Koran organisiert?",
+      "q2": "Was sind die Hauptthemen im Koran?",
+      "q3": "Erklare, wie man mit Tajweed rezitiert",
+      "q4": "Zeig mir die Bedeutung einer Sure"
+    },
+    "Hadith": {
+      "q1": "Was ist ein Hadith und warum ist er wichtig?",
+      "q2": "Wie verifizieren wir authentische Hadithe?",
+      "q3": "Erklare beruhmte Hadith-Sammlungen",
+      "q4": "Zeig mir Beispiele der Lehren des Propheten"
+    },
+    "Fiqh": {
+      "q1": "Was sind die Saulen des Islam?",
+      "q2": "Wie mache ich Wudu richtig?",
+      "q3": "Erklare die Regeln des Gebets",
+      "q4": "Bring mir bei, wie man Zakat berechnet"
+    },
+    "IslamicHistory": {
+      "q1": "Erzahl mir uber das Leben des Propheten Muhammad",
+      "q2": "Was geschah wahrend des fruhen Kalifats?",
+      "q3": "Erklare wichtige islamische Reiche",
+      "q4": "Zeig mir, wie sich der Islam weltweit verbreitete"
+    },
+    "Aqeedah": {
+      "q1": "Was sind die sechs Glaubensartikel?",
+      "q2": "Wie verstehen wir Allahs Eigenschaften?",
+      "q3": "Erklare das Konzept des Tauhid",
+      "q4": "Zeig mir die Wichtigkeit des Glaubens"
+    },
+    "ArabicLanguage": {
+      "q1": "Wie lese ich arabische Buchstaben?",
+      "q2": "Welche arabischen Grundworter sollte ich kennen?",
+      "q3": "Erklare die Grundlagen der arabischen Grammatik",
+      "q4": "Bring mir bei, auf Arabisch zu schreiben"
+    }
+  }
+}

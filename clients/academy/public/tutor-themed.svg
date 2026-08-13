@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" baseProfile="basic" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="tutor-head-grad" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a8e6ff"/>
+      <stop offset=".4" stop-color="#5fb8e6"/>
+      <stop offset="1" stop-color="#2b7cb8"/>
+    </linearGradient>
+    <linearGradient id="tutor-head-glass" x1="12" y1="10" x2="36" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#a8d8ea" stop-opacity=".3"/>
+    </linearGradient>
+    <linearGradient id="tutor-ear-grad" x1="0" y1="20" x2="12" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5fb8e6"/>
+      <stop offset="1" stop-color="#2b7cb8"/>
+    </linearGradient>
+    <linearGradient id="tutor-visor-grad" x1="14" y1="20" x2="34" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1a5276" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#0d3b5e"/>
+    </linearGradient>
+    <linearGradient id="tutor-antenna-grad" x1="24" y1="2" x2="24" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f26d21"/>
+      <stop offset="1" stop-color="#fdbd19"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Antenna (keeps the orange accent) -->
+  <line x1="24" y1="14" x2="24" y2="7" stroke="url(#tutor-antenna-grad)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="24" cy="5" r="3" fill="url(#tutor-antenna-grad)"/>
+  <circle cx="24" cy="5" r="2" fill="#fce724" opacity=".5"/>
+
+  <!-- Left ear -->
+  <rect x="3" y="20" width="7" height="12" rx="3" fill="url(#tutor-ear-grad)"/>
+  <rect x="4" y="21" width="5" height="10" rx="2.5" fill="#ffffff" opacity=".25"/>
+
+  <!-- Right ear -->
+  <rect x="38" y="20" width="7" height="12" rx="3" fill="url(#tutor-ear-grad)"/>
+  <rect x="39" y="21" width="5" height="10" rx="2.5" fill="#ffffff" opacity=".25"/>
+
+  <!-- Head shadow layers -->
+  <rect x="10" y="12" width="28" height="24" rx="9" fill="#1a5276" opacity=".08"/>
+  <rect x="10.5" y="12.5" width="27" height="23" rx="8.5" fill="#1a5276" opacity=".12"/>
+
+  <!-- Head main -->
+  <rect x="9" y="11" width="30" height="25" rx="10" fill="url(#tutor-head-grad)"/>
+
+  <!-- Head glass overlay -->
+  <rect x="9" y="11" width="30" height="25" rx="10" fill="url(#tutor-head-glass)"/>
+
+  <!-- Head inner highlight -->
+  <rect x="11" y="13" width="26" height="15" rx="7" fill="#ffffff" opacity=".35"/>
+
+  <!-- Visor -->
+  <rect x="14" y="19" width="20" height="9" rx="4.5" fill="url(#tutor-visor-grad)"/>
+  <rect x="15" y="20" width="18" height="4" rx="2" fill="#ffffff" opacity=".1"/>
+
+  <!-- Eyes -->
+  <circle cx="19" cy="23.5" r="2" fill="#ffffff"/>
+  <circle cx="29" cy="23.5" r="2" fill="#ffffff"/>
+  <circle cx="19" cy="23.5" r="1" fill="#ffffff" opacity=".5"/>
+  <circle cx="29" cy="23.5" r="1" fill="#ffffff" opacity=".5"/>
+
+  <!-- Smile -->
+  <path d="M 19 31 Q 24 34.5 29 31" fill="none" stroke="#0d3b5e" stroke-width="1.5" stroke-linecap="round" opacity=".6"/>
+</svg>

@@ -1,0 +1,49 @@
+{
+  "list": {
+    "title": "Meus Projetos",
+    "subtitle": "Carregue documentos e converse com seus arquivos de projeto usando IA",
+    "noProjectsTitle": "Nenhum Projeto Ainda",
+    "noProjectsDescription": "Crie um projeto para carregar documentos e conversar com eles usando IA.",
+    "createFirstProject": "Crie Seu Primeiro Projeto",
+    "files": "arquivos",
+    "file": "arquivo"
+  },
+  "create": {
+    "title": "Criar Novo Projeto",
+    "projectName": "Nome do Projeto",
+    "projectNamePlaceholder": "Digite o nome do projeto",
+    "description": "Descrição (opcional)",
+    "descriptionPlaceholder": "Descreva seu projeto",
+    "createButton": "Criar Projeto"
+  },
+  "detail": {
+    "backToProjects": "Voltar para Projetos",
+    "clickToAddDescription": "Clique para adicionar uma descrição",
+    "chatWithDocuments": "Conversar com Documentos",
+    "uploadTitle": "Solte os arquivos aqui ou clique para carregar",
+    "uploadSubtitle": "Suporta arquivos PDF, DOCX, TXT, MD",
+    "uploadingAndProcessing": "Carregando e processando...",
+    "projectFiles": "Arquivos do Projeto ({count})",
+    "noFilesYet": "Nenhum arquivo carregado ainda. Carregue seu primeiro documento acima."
+  },
+  "delete": {
+    "title": "Excluir Projeto?",
+    "fileTitle": "Excluir Arquivo?",
+    "projectWarning": "Isso excluirá permanentemente o projeto e todos os seus arquivos. Esta ação não pode ser desfeita.",
+    "fileWarning": "Isso excluirá permanentemente o arquivo e suas incorporações. Esta ação não pode ser desfeita."
+  },
+  "chat": {
+    "backToProject": "Voltar para o Projeto",
+    "embeddedFiles": "{count} arquivo incorporado",
+    "embeddedFilesPlural": "{count} arquivos incorporados",
+    "chatHistory": "Histórico de Conversas",
+    "noChatHistory": "Nenhum histórico de conversa ainda",
+    "chatSession": "Sessão de conversa",
+    "chatTitle": "Converse com Seus Documentos",
+    "chatDescription": "Faça perguntas sobre seus documentos carregados. A IA usará o conteúdo dos seus arquivos para fornecer respostas relevantes.",
+    "askPlaceholder": "Faça uma pergunta sobre seus documentos...",
+    "noEmbeddedDocuments": "Nenhum documento incorporado encontrado. Carregue e aguarde os documentos serem processados antes de conversar.",
+    "deleteChat": "Excluir Conversa?",
+    "deleteChatWarning": "Isso removerá permanentemente o histórico de conversas desta sessão."
+  }
+}

@@ -1,0 +1,4 @@
+# Shell scripts must keep LF line endings so their `#!/bin/sh` shebang works
+# inside Linux containers (a CRLF shebang fails at runtime). This matters for
+# the frontend docker-entrypoint.sh scripts that inject the per-env API URL.
+*.sh text eol=lf

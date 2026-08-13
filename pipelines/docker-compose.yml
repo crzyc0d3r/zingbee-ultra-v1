@@ -1,0 +1,109 @@
+services:
+  # ── PostgreSQL ──────────────────────────────────────────────
+  db:
+    # Matches the deployed environment: PG18 + timescaledb + timescaledb_toolkit.
+    # NOTE: this image stores data at /home/postgres/pgdata/data, not the
+    # official image's /var/lib/postgresql/data.
+    image: timescale/timescaledb-ha:pg18
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: zingbee-ultra
+      POSTGRES_USER: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - pgdata:/home/postgres/pgdata/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d zingbee-ultra"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 40s
+
+  # ── Python API (FastAPI / Uvicorn) ──────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    restart: unless-stopped
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_NAME: zingbee-ultra
+      DB_USER: postgres
+    env_file:
+      - ./api/.env
+    volumes:
+      - ./generated_media:/app/generated_media
+    ports:
+      - "9000:9000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # ── Red Team client (Next.js) ───────────────────────────────
+  red-team:
+    build:
+      context: ./clients/red-team
+      args:
+        NEXT_PUBLIC_API_URL: http://api:9000
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: http://api:9000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+  # ── Academy client (Next.js) ────────────────────────────
+  academy:
+    build:
+      context: ./clients/academy
+      args:
+        NEXT_PUBLIC_API_URL: http://api:9000
+        NEXT_PUBLIC_VOICE_SESSION_URL: ""
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: http://api:9000
+      API_INTERNAL_URL: http://api:9000
+    ports:
+      - "3001:3000"
+    depends_on:
+      - api
+
+  # ── Admin client (Next.js) ─────────────────────────────────
+  admin:
+    build:
+      context: ./clients/admin
+      args:
+        NEXT_PUBLIC_API_URL: http://api:9000
+    restart: unless-stopped
+    environment:
+      NEXT_PUBLIC_API_URL: http://api:9000
+    ports:
+      - "3002:3000"
+    depends_on:
+      - api
+
+  # ── Caddy reverse proxy ────────────────────────────────────
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - api
+      - red-team
+      - academy
+      - admin
+
+volumes:
+  pgdata:
+  caddy_data:
+  caddy_config:

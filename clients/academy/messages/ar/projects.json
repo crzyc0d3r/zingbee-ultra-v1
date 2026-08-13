@@ -1,0 +1,49 @@
+{
+  "list": {
+    "title": "مشاريعي",
+    "subtitle": "قم بتحميل المستندات والدردشة مع ملفات مشروعك باستخدام الذكاء الاصطناعي",
+    "noProjectsTitle": "لا توجد مشاريع بعد",
+    "noProjectsDescription": "أنشئ مشروعًا لتحميل المستندات والدردشة معها باستخدام الذكاء الاصطناعي.",
+    "createFirstProject": "أنشئ مشروعك الأول",
+    "files": "ملفات",
+    "file": "ملف"
+  },
+  "create": {
+    "title": "إنشاء مشروع جديد",
+    "projectName": "اسم المشروع",
+    "projectNamePlaceholder": "أدخل اسم المشروع",
+    "description": "الوصف (اختياري)",
+    "descriptionPlaceholder": "صف مشروعك",
+    "createButton": "إنشاء المشروع"
+  },
+  "detail": {
+    "backToProjects": "العودة إلى المشاريع",
+    "clickToAddDescription": "انقر لإضافة وصف",
+    "chatWithDocuments": "الدردشة مع المستندات",
+    "uploadTitle": "اسحب الملفات هنا أو انقر للتحميل",
+    "uploadSubtitle": "يدعم ملفات PDF، DOCX، TXT، MD",
+    "uploadingAndProcessing": "جارٍ التحميل والمعالجة...",
+    "projectFiles": "ملفات المشروع ({count})",
+    "noFilesYet": "لم يتم تحميل أي ملفات بعد. قم بتحميل مستندك الأول أعلاه."
+  },
+  "delete": {
+    "title": "حذف المشروع؟",
+    "fileTitle": "حذف الملف؟",
+    "projectWarning": "سيؤدي هذا إلى حذف المشروع وجميع ملفاته نهائيًا. لا يمكن التراجع عن هذا الإجراء.",
+    "fileWarning": "سيؤدي هذا إلى حذف الملف وتضميناته نهائيًا. لا يمكن التراجع عن هذا الإجراء."
+  },
+  "chat": {
+    "backToProject": "العودة إلى المشروع",
+    "embeddedFiles": "{count} ملف مضمن",
+    "embeddedFilesPlural": "{count} ملفات مضمنة",
+    "chatHistory": "سجل الدردشة",
+    "noChatHistory": "لا يوجد سجل دردشة بعد",
+    "chatSession": "جلسة الدردشة",
+    "chatTitle": "الدردشة مع مستنداتك",
+    "chatDescription": "اطرح أسئلة حول مستنداتك المحملة. سيستخدم الذكاء الاصطناعي محتوى ملفاتك لتقديم إجابات ذات صلة.",
+    "askPlaceholder": "اطرح سؤالاً حول مستنداتك...",
+    "noEmbeddedDocuments": "لم يتم العثور على مستندات مضمنة. قم بالتحميل وانتظر معالجة المستندات قبل الدردشة.",
+    "deleteChat": "حذف الدردشة؟",
+    "deleteChatWarning": "سيؤدي هذا إلى إزالة سجل الدردشة لهذه الجلسة نهائيًا."
+  }
+}

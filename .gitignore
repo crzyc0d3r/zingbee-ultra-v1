@@ -1,0 +1,90 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+*.whl
+.venv/
+venv/
+env/
+api.venv/
+.python-version
+
+# Environment / secrets
+# Local runtime env files should never be committed.
+.env
+.env.*
+api/.env
+api/.env.*
+!.env.example
+!api/.env.example
+
+# Local trace logs (dev sink for the logs viewer; rotated by trace_logging.py)
+api/logs/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+.env*.local
+
+# Package manager locks (keep only the one you use)
+# Uncomment the ones you don't use:
+# package-lock.json
+# pnpm-lock.yaml
+# bun.lock
+
+# Build output
+dist/
+build/
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+__MACOSX/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+.vscode/
+.vs/
+*.code-workspace
+
+# Playwright
+test-results/
+playwright-report/
+
+
+# GCP service account keys
+pipelines/gcs-service-account.json
+**/gcs-service-account.json
+
+# Misc
+.dev-pids
+*.log
+generated_media/
+certificates/*.pem
+ptx/
+.eval/

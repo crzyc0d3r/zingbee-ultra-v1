@@ -1,0 +1,23 @@
+{
+	auto_https off
+}
+
+# Admin         –  http://admin.localhost
+admin.localhost {
+	reverse_proxy admin:3000
+}
+
+# Academy   –  http://academy.localhost
+academy.localhost {
+	reverse_proxy academy:3000
+}
+
+# Red Team      –  http://redteam.localhost
+redteam.localhost {
+	reverse_proxy red-team:3000
+}
+
+# API           –  http://api.localhost
+api.localhost {
+	reverse_proxy api:9000
+}

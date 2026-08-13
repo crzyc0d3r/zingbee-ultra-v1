@@ -1,0 +1,57 @@
+{
+  "tables": {
+    "subjects": {
+      "visible_cols": ["name", "description", "created_at"],
+      "col_widths": { "name": 100, "created_at": 120 }
+    },
+    "subject_curriculum": {
+      "visible_cols": ["subject_id", "phase", "age_range", "total_credits", "credit_per_theme", "credit_per_capsule", "created_at"]
+    },
+    "curriculum_themes": {
+      "visible_cols": ["name", "theme_order", "created_at"],
+      "col_widths": { "theme_order": 100, "created_at": 120 }
+    },
+    "curriculum_capsules": {
+      "visible_cols": ["name", "capsule_order", "credit_value"],
+      "col_widths": { "capsule_order": 100, "credit_value": 100 }
+    },
+    "curriculum_facts": {
+      "visible_cols": ["fact_text", "fact_order", "difficulty_weighting", "created_at"],
+      "col_widths": { "fact_order": 100, "difficulty_weighting": 80, "created_at": 120 }
+    },
+    "users": {
+      "visible_cols": ["email", "username", "display_name", "role", "is_active", "created_at", "last_login"]
+    },
+    "learning_sessions": {
+      "visible_cols": ["user_id", "student_id", "curriculum_capsule_id", "start_time", "end_time", "questions_asked", "correct_answers", "total_tokens", "facts_taught_count", "accuracy"]
+    },
+    "agents": {
+      "visible_cols": ["name", "description", "model", "temperature", "max_tokens", "is_active"],
+      "col_widths": { "name": 80, "model": 100, "temperature": 80, "max_tokens": 80, "is_active": 50 }
+    }
+  },
+  "audit_detail": {
+    "tab_order": ["Overview", "Insights", "Subjects", "Matrix", "Raw JSON"],
+    "health_colors": {
+      "high": { "min": 80, "color": "#2dd4bf" },
+      "medium": { "min": 60, "color": "#fbbf24" },
+      "low": { "color": "#f472b6" }
+    },
+    "severity_colors": {
+      "concern": "#f472b6",
+      "suggestion": "#fbbf24",
+      "strength": "#4ade80"
+    }
+  },
+  "modal": {
+    "open_selector": ".overlay.active",
+    "close_selector": ".modal-x",
+    "closed_after_save": true
+  },
+  "general": {
+    "no_unwanted_elements": [
+      ".badge:not([data-expected])",
+      "[data-testid='auto-added']"
+    ]
+  }
+}

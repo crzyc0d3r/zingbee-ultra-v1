@@ -1,0 +1,361 @@
+/* Curriculum Builder page styles */
+
+.cb-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #1a1a2e;
+  color: #e2e8f0;
+  min-height: 100vh;
+  padding: 24px 32px;
+}
+
+.cb-header {
+  margin-bottom: 24px;
+}
+.cb-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 4px;
+}
+.cb-header p {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* Upload zone */
+.cb-upload-zone {
+  border: 2px dashed #334155;
+  border-radius: 12px;
+  padding: 48px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #16213e;
+  margin-bottom: 24px;
+}
+.cb-upload-zone:hover,
+.cb-upload-zone.dragover {
+  border-color: #3b82f6;
+  background: #1e293b;
+}
+.cb-upload-zone.has-file {
+  border-color: #22c55e;
+  border-style: solid;
+}
+.cb-upload-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+  color: #64748b;
+}
+.cb-upload-zone.has-file .cb-upload-icon {
+  color: #22c55e;
+}
+.cb-upload-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 4px;
+}
+.cb-upload-hint {
+  font-size: 12px;
+  color: #64748b;
+}
+.cb-upload-file {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #60a5fa;
+  font-weight: 500;
+}
+
+/* Action bar */
+.cb-actions {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+.cb-btn {
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.cb-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.cb-btn-primary {
+  background: #3b82f6;
+  color: #fff;
+}
+.cb-btn-primary:hover:not(:disabled) {
+  background: #2563eb;
+}
+.cb-btn-success {
+  background: #22c55e;
+  color: #fff;
+}
+.cb-btn-success:hover:not(:disabled) {
+  background: #16a34a;
+}
+.cb-btn-secondary {
+  background: #334155;
+  color: #e2e8f0;
+}
+.cb-btn-secondary:hover:not(:disabled) {
+  background: #475569;
+}
+
+/* Loading */
+.cb-loading {
+  text-align: center;
+  padding: 48px;
+  color: #94a3b8;
+}
+.cb-spinner {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border: 3px solid #334155;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: cb-spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+@keyframes cb-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error */
+.cb-error {
+  background: #7f1d1d;
+  border: 1px solid #ef4444;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #fecaca;
+  margin-bottom: 16px;
+}
+
+/* Stats bar */
+.cb-stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.cb-stat {
+  background: #16213e;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 12px 20px;
+  text-align: center;
+  min-width: 120px;
+}
+.cb-stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+.cb-stat-label {
+  font-size: 11px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+/* Results tree */
+.cb-results {
+  margin-bottom: 24px;
+}
+.cb-results h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 16px;
+}
+
+.cb-subject-header {
+  background: #16213e;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.cb-subject-header .cb-meta {
+  font-size: 12px;
+  color: #94a3b8;
+}
+.cb-subject-header .cb-meta strong {
+  color: #e2e8f0;
+}
+
+.cb-theme {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.cb-theme-header {
+  padding: 10px 16px;
+  background: #16213e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e2e8f0;
+  transition: background 0.15s;
+}
+.cb-theme-header:hover {
+  background: #1e293b;
+}
+.cb-theme-arrow {
+  font-size: 10px;
+  transition: transform 0.2s;
+  color: #64748b;
+}
+.cb-theme-arrow.open {
+  transform: rotate(90deg);
+}
+.cb-theme-gq {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 400;
+  font-style: italic;
+  margin-left: auto;
+}
+.cb-theme-body {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.cb-theme-body.open {
+  padding: 12px 16px;
+  max-height: 4000px;
+}
+
+.cb-capsule {
+  background: #16213e;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+}
+.cb-capsule-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #60a5fa;
+  margin-bottom: 6px;
+}
+.cb-facts {
+  list-style: none;
+  padding: 0;
+}
+.cb-facts li {
+  font-size: 12px;
+  color: #cbd5e1;
+  padding: 3px 0 3px 16px;
+  position: relative;
+}
+.cb-facts li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #3b82f6;
+}
+
+.cb-capsule-meta {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+.cb-tag {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #1e293b;
+  color: #94a3b8;
+}
+.cb-tag.misconception {
+  background: #7f1d1d33;
+  color: #fca5a5;
+  border: 1px solid #7f1d1d;
+}
+.cb-tag.vocab {
+  background: #1e3a5f33;
+  color: #93c5fd;
+  border: 1px solid #1e3a5f;
+}
+
+/* DB Mapping section */
+.cb-mapping {
+  margin-bottom: 24px;
+}
+.cb-mapping h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 12px;
+}
+.cb-mapping-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  background: #16213e;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #334155;
+}
+.cb-mapping-table th {
+  background: #0f172a;
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #94a3b8;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #334155;
+}
+.cb-mapping-table td {
+  padding: 6px 12px;
+  border-bottom: 1px solid #1e293b;
+  color: #e2e8f0;
+}
+.cb-table-label {
+  font-weight: 600;
+  color: #f59e0b;
+  font-size: 11px;
+}
+
+/* Success banner */
+.cb-success {
+  background: #14532d;
+  border: 1px solid #22c55e;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #bbf7d0;
+  margin-bottom: 16px;
+}

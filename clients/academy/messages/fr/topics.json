@@ -1,0 +1,148 @@
+{
+  "topicQuestions": {
+    "Algebra": {
+      "q1": "Que sont les variables et comment les utiliser ?",
+      "q2": "Comment résoudre x dans une équation ?",
+      "q3": "Explique-moi les équations linéaires",
+      "q4": "Montre-moi comment factoriser des polynômes"
+    },
+    "Geometry": {
+      "q1": "Quelles sont les formes de base et leurs propriétés ?",
+      "q2": "Comment calculer l'aire et le périmètre ?",
+      "q3": "Explique les angles et comment les mesurer",
+      "q4": "Apprends-moi les triangles et leurs règles"
+    },
+    "Calculus": {
+      "q1": "Qu'est-ce qu'une dérivée et pourquoi est-elle utile ?",
+      "q2": "Comment trouver les limites des fonctions ?",
+      "q3": "Explique-moi l'intégration",
+      "q4": "Montre-moi comment résoudre des problèmes de taux de variation"
+    },
+    "Statistics": {
+      "q1": "Que sont la moyenne, la médiane et le mode ?",
+      "q2": "Comment calculer la probabilité ?",
+      "q3": "Explique l'écart-type",
+      "q4": "Montre-moi comment interpréter les graphiques de données"
+    },
+    "Trigonometry": {
+      "q1": "Que sont le sinus, le cosinus et la tangente ?",
+      "q2": "Comment utiliser le cercle unitaire ?",
+      "q3": "Explique les identités trigonométriques",
+      "q4": "Montre-moi comment résoudre des problèmes de triangles"
+    },
+    "NumberTheory": {
+      "q1": "Que sont les nombres premiers ?",
+      "q2": "Comment trouver les facteurs et les multiples ?",
+      "q3": "Explique les règles de divisibilité",
+      "q4": "Montre-moi les motifs dans les nombres"
+    },
+    "Grammar": {
+      "q1": "Quelles sont les parties du discours ?",
+      "q2": "Comment utiliser correctement les virgules ?",
+      "q3": "Explique-moi les temps des verbes",
+      "q4": "Montre-moi comment corriger les fragments de phrases"
+    },
+    "Writing": {
+      "q1": "Comment écrire un bon paragraphe ?",
+      "q2": "Qu'est-ce qui fait une bonne thèse ?",
+      "q3": "Explique les différentes structures de dissertation",
+      "q4": "Montre-moi comment améliorer mon style d'écriture"
+    },
+    "ReadingComprehension": {
+      "q1": "Comment identifier l'idée principale ?",
+      "q2": "Que sont les indices contextuels ?",
+      "q3": "Explique comment faire des inférences",
+      "q4": "Montre-moi comment résumer un passage"
+    },
+    "Vocabulary": {
+      "q1": "Comment apprendre de nouveaux mots efficacement ?",
+      "q2": "Que sont les racines et les affixes ?",
+      "q3": "Explique les synonymes et antonymes",
+      "q4": "Montre-moi comment utiliser les mots en contexte"
+    },
+    "Literature": {
+      "q1": "Comment analyser une histoire ?",
+      "q2": "Que sont les procédés littéraires ?",
+      "q3": "Explique les thèmes et le symbolisme",
+      "q4": "Montre-moi comment comprendre la poésie"
+    },
+    "CreativeWriting": {
+      "q1": "Comment créer des personnages intéressants ?",
+      "q2": "Qu'est-ce qui fait une bonne intrigue ?",
+      "q3": "Explique les différents styles d'écriture",
+      "q4": "Montre-moi comment écrire des dialogues"
+    },
+    "CellBiology": {
+      "q1": "Qu'est-ce qu'une cellule et que fait-elle ?",
+      "q2": "Comment les cellules se divisent et se reproduisent ?",
+      "q3": "Explique les parties d'une cellule",
+      "q4": "Montre-moi la différence entre cellules végétales et animales"
+    },
+    "Genetics": {
+      "q1": "Qu'est-ce que l'ADN et comment fonctionne-t-il ?",
+      "q2": "Comment les traits passent des parents aux enfants ?",
+      "q3": "Explique les gènes dominants et récessifs",
+      "q4": "Montre-moi comment les mutations génétiques se produisent"
+    },
+    "Ecology": {
+      "q1": "Qu'est-ce qu'un écosystème ?",
+      "q2": "Comment fonctionnent les chaînes alimentaires ?",
+      "q3": "Explique le cycle de l'eau",
+      "q4": "Montre-moi comment les organismes interagissent"
+    },
+    "HumanBody": {
+      "q1": "Comment fonctionne le système circulatoire ?",
+      "q2": "Que font les différents organes ?",
+      "q3": "Explique comment nous digérons la nourriture",
+      "q4": "Montre-moi comment le cerveau contrôle le corps"
+    },
+    "Evolution": {
+      "q1": "Qu'est-ce que la sélection naturelle ?",
+      "q2": "Comment les espèces s'adaptent au fil du temps ?",
+      "q3": "Explique les preuves de l'évolution",
+      "q4": "Montre-moi des exemples d'adaptation"
+    },
+    "Microbiology": {
+      "q1": "Que sont les bactéries et les virus ?",
+      "q2": "Comment les micro-organismes nous affectent ?",
+      "q3": "Explique le système immunitaire",
+      "q4": "Montre-moi comment les maladies se propagent"
+    },
+    "Quran": {
+      "q1": "Comment le Coran est-il organisé ?",
+      "q2": "Quels sont les thèmes principaux du Coran ?",
+      "q3": "Explique comment réciter avec tajweed",
+      "q4": "Montre-moi le sens d'une sourate"
+    },
+    "Hadith": {
+      "q1": "Qu'est-ce qu'un hadith et pourquoi est-il important ?",
+      "q2": "Comment vérifions-nous les hadiths authentiques ?",
+      "q3": "Explique les recueils de hadiths célèbres",
+      "q4": "Montre-moi des exemples des enseignements du Prophète"
+    },
+    "Fiqh": {
+      "q1": "Quels sont les piliers de l'Islam ?",
+      "q2": "Comment faire les ablutions correctement ?",
+      "q3": "Explique les règles de la prière",
+      "q4": "Apprends-moi à calculer la zakat"
+    },
+    "IslamicHistory": {
+      "q1": "Parle-moi de la vie du Prophète Muhammad",
+      "q2": "Que s'est-il passé pendant le califat précoce ?",
+      "q3": "Explique les empires islamiques importants",
+      "q4": "Montre-moi comment l'Islam s'est répandu dans le monde"
+    },
+    "Aqeedah": {
+      "q1": "Quels sont les six articles de foi ?",
+      "q2": "Comment comprenons-nous les attributs d'Allah ?",
+      "q3": "Explique le concept de tawhid",
+      "q4": "Montre-moi l'importance de la croyance"
+    },
+    "ArabicLanguage": {
+      "q1": "Comment lire les lettres arabes ?",
+      "q2": "Quels mots arabes de base devrais-je connaître ?",
+      "q3": "Explique les bases de la grammaire arabe",
+      "q4": "Apprends-moi à écrire en arabe"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "list": {
+    "title": "Meine Projekte",
+    "subtitle": "Laden Sie Dokumente hoch und chatten Sie mit Ihren Projektdateien mithilfe von KI",
+    "noProjectsTitle": "Noch Keine Projekte",
+    "noProjectsDescription": "Erstellen Sie ein Projekt, um Dokumente hochzuladen und mit ihnen mithilfe von KI zu chatten.",
+    "createFirstProject": "Erstellen Sie Ihr Erstes Projekt",
+    "files": "Dateien",
+    "file": "Datei"
+  },
+  "create": {
+    "title": "Neues Projekt Erstellen",
+    "projectName": "Projektname",
+    "projectNamePlaceholder": "Projektnamen eingeben",
+    "description": "Beschreibung (optional)",
+    "descriptionPlaceholder": "Beschreiben Sie Ihr Projekt",
+    "createButton": "Projekt Erstellen"
+  },
+  "detail": {
+    "backToProjects": "Zurück zu Projekten",
+    "clickToAddDescription": "Klicken Sie, um eine Beschreibung hinzuzufügen",
+    "chatWithDocuments": "Mit Dokumenten Chatten",
+    "uploadTitle": "Dateien hierher ziehen oder klicken zum Hochladen",
+    "uploadSubtitle": "Unterstützt PDF, DOCX, TXT, MD Dateien",
+    "uploadingAndProcessing": "Hochladen und Verarbeiten...",
+    "projectFiles": "Projektdateien ({count})",
+    "noFilesYet": "Noch keine Dateien hochgeladen. Laden Sie oben Ihr erstes Dokument hoch."
+  },
+  "delete": {
+    "title": "Projekt Löschen?",
+    "fileTitle": "Datei Löschen?",
+    "projectWarning": "Dies wird das Projekt und alle seine Dateien dauerhaft löschen. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "fileWarning": "Dies wird die Datei und ihre Einbettungen dauerhaft löschen. Diese Aktion kann nicht rückgängig gemacht werden."
+  },
+  "chat": {
+    "backToProject": "Zurück zum Projekt",
+    "embeddedFiles": "{count} eingebettete Datei",
+    "embeddedFilesPlural": "{count} eingebettete Dateien",
+    "chatHistory": "Chat-Verlauf",
+    "noChatHistory": "Noch kein Chat-Verlauf",
+    "chatSession": "Chat-Sitzung",
+    "chatTitle": "Chatten Sie mit Ihren Dokumenten",
+    "chatDescription": "Stellen Sie Fragen zu Ihren hochgeladenen Dokumenten. Die KI wird den Inhalt Ihrer Dateien verwenden, um relevante Antworten zu geben.",
+    "askPlaceholder": "Stellen Sie eine Frage zu Ihren Dokumenten...",
+    "noEmbeddedDocuments": "Keine eingebetteten Dokumente gefunden. Laden Sie hoch und warten Sie, bis die Dokumente verarbeitet sind, bevor Sie chatten.",
+    "deleteChat": "Chat Löschen?",
+    "deleteChatWarning": "Dies wird den Chat-Verlauf dieser Sitzung dauerhaft entfernen."
+  }
+}

@@ -1,0 +1,201 @@
+/* Shared reset and dark theme base. NOTE: do NOT include `:focus-visible` in
+   this universal `outline: none` rule — that blocks keyboard focus indicators
+   across the entire app (WCAG 2.4.7 Level AA failure). The `:focus-visible`
+   rule below restores them for keyboard users only. */
+*,
+*:focus,
+*:focus-within,
+*:active {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Keyboard-only focus indicator. `:focus-visible` fires on keyboard navigation
+   but NOT on mouse clicks, so sighted pointer users don't see extra outlines.
+   Per pre-ship review pass-2 N1. */
+*:focus-visible {
+  outline: 2px solid #6366f1 !important;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Visually hidden but available to assistive tech. Used by metaphor-review
+   for "Review status:" prefixes on status badges, "Winner candidate" on the
+   ★ glyph, etc. Standard pattern. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Hide caret on non-input elements, show it in actual input fields */
+*:not(input):not(textarea):not([contenteditable="true"]) {
+  caret-color: transparent;
+}
+input, textarea, [contenteditable="true"] {
+  caret-color: #e2e8f0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #1a1a2e;
+  color: #eee;
+  cursor: default;
+}
+
+a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Shared scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* SVG icon utility */
+.i {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+.ico .i {
+  width: 32px;
+  height: 32px;
+}
+
+/* Login overlay - shared across all pages */
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #1a1a2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-card {
+  background: #16213e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 40px;
+  width: 360px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 0 40px rgba(239,68,68,0.08);
+}
+.login-card h2 {
+  color: #ef4444;
+  text-align: center;
+  margin-bottom: 6px;
+  font-size: 22px;
+}
+.login-card .login-subtitle {
+  color: #94a3b8;
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 28px;
+}
+.login-card label {
+  display: block;
+  color: #94a3b8;
+  font-size: 12px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.login-card input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #0f1629;
+  color: #eee;
+  font-size: 14px;
+  margin-bottom: 16px;
+  outline: none;
+}
+.login-card input:focus {
+  border-color: #ef4444;
+}
+.login-card .login-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #ef4444;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.login-card .login-btn:hover {
+  background: #dc2626;
+}
+.login-card .login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.login-error {
+  color: #ef4444;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 12px;
+  min-height: 18px;
+}
+.logout-btn {
+  background: none;
+  border: 1px solid #444;
+  color: #94a3b8;
+  padding: 4px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+.logout-btn:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* JSON Viewer (shared) */
+.jv-root{background:#0f0f1a;border:1px solid #334155;border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.jv-toolbar{display:flex;gap:6px;padding:6px 12px;background:#12121f;border-bottom:1px solid #1e293b;flex-shrink:0}
+.jv-btn{background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:4px;padding:3px 10px;font-size:11px;font-family:inherit;cursor:pointer;transition:all .15s}
+.jv-btn:hover{color:#e2e8f0;border-color:#60a5fa;background:#1e3a5f}
+.jv-tree{overflow:auto;padding:12px 8px;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:12px;line-height:1.7}
+.jv-line{white-space:pre-wrap;word-break:break-word;padding:0 8px;border-radius:3px}
+.jv-line:hover{background:rgba(96,165,250,.06)}
+.jv-toggle{cursor:pointer;user-select:none}
+.jv-caret{display:inline-block;width:14px;font-size:9px;color:#64748b;text-align:center;margin-right:2px}
+.jv-key{color:#60a5fa}
+.jv-colon{color:#64748b}
+.jv-str{color:#a5d6a7}
+.jv-num{color:#f9a825}
+.jv-bool{color:#ce93d8}
+.jv-null{color:#ef9a9a;font-style:italic}
+.jv-bracket{color:#94a3b8;font-weight:600}
+.jv-preview{color:#475569;font-style:italic;font-size:11px}

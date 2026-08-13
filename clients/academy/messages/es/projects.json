@@ -1,0 +1,49 @@
+{
+  "list": {
+    "title": "Mis Proyectos",
+    "subtitle": "Sube documentos y chatea con tus archivos de proyecto usando IA",
+    "noProjectsTitle": "Sin Proyectos Aún",
+    "noProjectsDescription": "Crea un proyecto para subir documentos y chatear con ellos usando IA.",
+    "createFirstProject": "Crea Tu Primer Proyecto",
+    "files": "archivos",
+    "file": "archivo"
+  },
+  "create": {
+    "title": "Crear Nuevo Proyecto",
+    "projectName": "Nombre del Proyecto",
+    "projectNamePlaceholder": "Ingresa el nombre del proyecto",
+    "description": "Descripción (opcional)",
+    "descriptionPlaceholder": "Describe tu proyecto",
+    "createButton": "Crear Proyecto"
+  },
+  "detail": {
+    "backToProjects": "Volver a Proyectos",
+    "clickToAddDescription": "Haz clic para agregar una descripción",
+    "chatWithDocuments": "Chatear con Documentos",
+    "uploadTitle": "Arrastra archivos aquí o haz clic para subir",
+    "uploadSubtitle": "Soporta archivos PDF, DOCX, TXT, MD",
+    "uploadingAndProcessing": "Subiendo y procesando...",
+    "projectFiles": "Archivos del Proyecto ({count})",
+    "noFilesYet": "No hay archivos subidos aún. Sube tu primer documento arriba."
+  },
+  "delete": {
+    "title": "¿Eliminar Proyecto?",
+    "fileTitle": "¿Eliminar Archivo?",
+    "projectWarning": "Esto eliminará permanentemente el proyecto y todos sus archivos. Esta acción no se puede deshacer.",
+    "fileWarning": "Esto eliminará permanentemente el archivo y sus incrustaciones. Esta acción no se puede deshacer."
+  },
+  "chat": {
+    "backToProject": "Volver al Proyecto",
+    "embeddedFiles": "{count} archivo incrustado",
+    "embeddedFilesPlural": "{count} archivos incrustados",
+    "chatHistory": "Historial de Chat",
+    "noChatHistory": "Sin historial de chat aún",
+    "chatSession": "Sesión de chat",
+    "chatTitle": "Chatea con Tus Documentos",
+    "chatDescription": "Haz preguntas sobre tus documentos subidos. La IA usará el contenido de tus archivos para proporcionar respuestas relevantes.",
+    "askPlaceholder": "Haz una pregunta sobre tus documentos...",
+    "noEmbeddedDocuments": "No se encontraron documentos incrustados. Sube y espera a que los documentos se procesen antes de chatear.",
+    "deleteChat": "¿Eliminar Chat?",
+    "deleteChatWarning": "Esto eliminará permanentemente el historial de chat de esta sesión."
+  }
+}

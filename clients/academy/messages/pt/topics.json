@@ -1,0 +1,148 @@
+{
+  "topicQuestions": {
+    "Algebra": {
+      "q1": "O que sao variaveis e como uso elas?",
+      "q2": "Como resolvo x em uma equacao?",
+      "q3": "Explique equacoes lineares para mim",
+      "q4": "Me mostre como fatorar polinomios"
+    },
+    "Geometry": {
+      "q1": "Quais sao as formas basicas e suas propriedades?",
+      "q2": "Como calculo area e perimetro?",
+      "q3": "Explique angulos e como medi-los",
+      "q4": "Me ensine sobre triangulos e suas regras"
+    },
+    "Calculus": {
+      "q1": "O que e uma derivada e por que e util?",
+      "q2": "Como encontro limites de funcoes?",
+      "q3": "Explique integracao para mim",
+      "q4": "Me mostre como resolver problemas de taxa de variacao"
+    },
+    "Statistics": {
+      "q1": "O que e media, mediana e moda?",
+      "q2": "Como calculo probabilidade?",
+      "q3": "Explique desvio padrao",
+      "q4": "Me mostre como interpretar graficos de dados"
+    },
+    "Trigonometry": {
+      "q1": "O que sao seno, cosseno e tangente?",
+      "q2": "Como uso o circulo unitario?",
+      "q3": "Explique identidades trigonometricas",
+      "q4": "Me mostre como resolver problemas de triangulos"
+    },
+    "NumberTheory": {
+      "q1": "O que sao numeros primos?",
+      "q2": "Como encontro fatores e multiplos?",
+      "q3": "Explique regras de divisibilidade",
+      "q4": "Me mostre padroes nos numeros"
+    },
+    "Grammar": {
+      "q1": "Quais sao as classes de palavras?",
+      "q2": "Como uso virgulas corretamente?",
+      "q3": "Explique os tempos verbais para mim",
+      "q4": "Me mostre como corrigir fragmentos de frases"
+    },
+    "Writing": {
+      "q1": "Como escrevo um bom paragrafo?",
+      "q2": "O que faz uma boa tese?",
+      "q3": "Explique diferentes estruturas de redacao",
+      "q4": "Me mostre como melhorar meu estilo de escrita"
+    },
+    "ReadingComprehension": {
+      "q1": "Como identifico a ideia principal?",
+      "q2": "O que sao pistas de contexto?",
+      "q3": "Explique como fazer inferencias",
+      "q4": "Me mostre como resumir uma passagem"
+    },
+    "Vocabulary": {
+      "q1": "Como posso aprender novas palavras efetivamente?",
+      "q2": "O que sao radicais e afixos?",
+      "q3": "Explique sinonimos e antonimos",
+      "q4": "Me mostre como usar palavras em contexto"
+    },
+    "Literature": {
+      "q1": "Como analiso uma historia?",
+      "q2": "O que sao recursos literarios?",
+      "q3": "Explique temas e simbolismo",
+      "q4": "Me mostre como entender poesia"
+    },
+    "CreativeWriting": {
+      "q1": "Como crio personagens interessantes?",
+      "q2": "O que faz uma boa trama?",
+      "q3": "Explique diferentes estilos de escrita",
+      "q4": "Me mostre como escrever dialogos"
+    },
+    "CellBiology": {
+      "q1": "O que e uma celula e o que ela faz?",
+      "q2": "Como as celulas se dividem e reproduzem?",
+      "q3": "Explique as partes de uma celula",
+      "q4": "Me mostre a diferenca entre celulas vegetais e animais"
+    },
+    "Genetics": {
+      "q1": "O que e DNA e como funciona?",
+      "q2": "Como os tracos passam dos pais para os filhos?",
+      "q3": "Explique genes dominantes e recessivos",
+      "q4": "Me mostre como mutacoes geneticas acontecem"
+    },
+    "Ecology": {
+      "q1": "O que e um ecossistema?",
+      "q2": "Como funcionam as cadeias alimentares?",
+      "q3": "Explique o ciclo da agua",
+      "q4": "Me mostre como os organismos interagem"
+    },
+    "HumanBody": {
+      "q1": "Como funciona o sistema circulatorio?",
+      "q2": "O que fazem os diferentes orgaos?",
+      "q3": "Explique como digerimos a comida",
+      "q4": "Me mostre como o cerebro controla o corpo"
+    },
+    "Evolution": {
+      "q1": "O que e selecao natural?",
+      "q2": "Como as especies se adaptam ao longo do tempo?",
+      "q3": "Explique evidencias da evolucao",
+      "q4": "Me mostre exemplos de adaptacao"
+    },
+    "Microbiology": {
+      "q1": "O que sao bacterias e virus?",
+      "q2": "Como os microorganismos nos afetam?",
+      "q3": "Explique o sistema imunologico",
+      "q4": "Me mostre como as doencas se espalham"
+    },
+    "Quran": {
+      "q1": "Como o Alcorao e organizado?",
+      "q2": "Quais sao os principais temas do Alcorao?",
+      "q3": "Explique como recitar com tajweed",
+      "q4": "Me mostre o significado de uma surata"
+    },
+    "Hadith": {
+      "q1": "O que e um hadith e por que e importante?",
+      "q2": "Como verificamos hadiths autenticos?",
+      "q3": "Explique colecoes famosas de hadith",
+      "q4": "Me mostre exemplos dos ensinamentos do Profeta"
+    },
+    "Fiqh": {
+      "q1": "Quais sao os pilares do Isla?",
+      "q2": "Como faco wudu corretamente?",
+      "q3": "Explique as regras da oracao",
+      "q4": "Me ensine como calcular o zakat"
+    },
+    "IslamicHistory": {
+      "q1": "Me conte sobre a vida do Profeta Muhammad",
+      "q2": "O que aconteceu durante o califado inicial?",
+      "q3": "Explique imperios islamicos importantes",
+      "q4": "Me mostre como o Isla se espalhou pelo mundo"
+    },
+    "Aqeedah": {
+      "q1": "Quais sao os seis artigos de fe?",
+      "q2": "Como entendemos os atributos de Ala?",
+      "q3": "Explique o conceito de tawhid",
+      "q4": "Me mostre a importancia da crenca"
+    },
+    "ArabicLanguage": {
+      "q1": "Como leio letras arabes?",
+      "q2": "Quais palavras arabes basicas devo conhecer?",
+      "q3": "Explique o basico da gramatica arabe",
+      "q4": "Me ensine a escrever em arabe"
+    }
+  }
+}

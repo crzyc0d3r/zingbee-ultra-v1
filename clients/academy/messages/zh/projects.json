@@ -1,0 +1,49 @@
+{
+  "list": {
+    "title": "我的项目",
+    "subtitle": "上传文档并使用AI与项目文件聊天",
+    "noProjectsTitle": "暂无项目",
+    "noProjectsDescription": "创建项目以上传文档并使用AI与它们聊天。",
+    "createFirstProject": "创建您的第一个项目",
+    "files": "文件",
+    "file": "文件"
+  },
+  "create": {
+    "title": "创建新项目",
+    "projectName": "项目名称",
+    "projectNamePlaceholder": "输入项目名称",
+    "description": "描述（可选）",
+    "descriptionPlaceholder": "描述您的项目",
+    "createButton": "创建项目"
+  },
+  "detail": {
+    "backToProjects": "返回项目",
+    "clickToAddDescription": "点击添加描述",
+    "chatWithDocuments": "与文档聊天",
+    "uploadTitle": "将文件拖放到此处或点击上传",
+    "uploadSubtitle": "支持PDF、DOCX、TXT、MD文件",
+    "uploadingAndProcessing": "上传和处理中...",
+    "projectFiles": "项目文件（{count}）",
+    "noFilesYet": "暂无上传文件。请在上方上传您的第一个文档。"
+  },
+  "delete": {
+    "title": "删除项目？",
+    "fileTitle": "删除文件？",
+    "projectWarning": "这将永久删除项目及其所有文件。此操作无法撤消。",
+    "fileWarning": "这将永久删除文件及其嵌入。此操作无法撤消。"
+  },
+  "chat": {
+    "backToProject": "返回项目",
+    "embeddedFiles": "{count}个嵌入文件",
+    "embeddedFilesPlural": "{count}个嵌入文件",
+    "chatHistory": "聊天记录",
+    "noChatHistory": "暂无聊天记录",
+    "chatSession": "聊天会话",
+    "chatTitle": "与您的文档聊天",
+    "chatDescription": "询问有关您上传文档的问题。AI将使用您文件的内容提供相关答案。",
+    "askPlaceholder": "询问有关您文档的问题...",
+    "noEmbeddedDocuments": "未找到嵌入文档。请上传并等待文档处理完成后再聊天。",
+    "deleteChat": "删除聊天？",
+    "deleteChatWarning": "这将永久删除此会话的聊天记录。"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "list": {
+    "title": "Mes Projets",
+    "subtitle": "Téléchargez des documents et discutez avec vos fichiers de projet en utilisant l'IA",
+    "noProjectsTitle": "Pas Encore de Projets",
+    "noProjectsDescription": "Créez un projet pour télécharger des documents et discuter avec eux en utilisant l'IA.",
+    "createFirstProject": "Créez Votre Premier Projet",
+    "files": "fichiers",
+    "file": "fichier"
+  },
+  "create": {
+    "title": "Créer un Nouveau Projet",
+    "projectName": "Nom du Projet",
+    "projectNamePlaceholder": "Entrez le nom du projet",
+    "description": "Description (optionnel)",
+    "descriptionPlaceholder": "Décrivez votre projet",
+    "createButton": "Créer le Projet"
+  },
+  "detail": {
+    "backToProjects": "Retour aux Projets",
+    "clickToAddDescription": "Cliquez pour ajouter une description",
+    "chatWithDocuments": "Discuter avec les Documents",
+    "uploadTitle": "Déposez les fichiers ici ou cliquez pour télécharger",
+    "uploadSubtitle": "Prend en charge les fichiers PDF, DOCX, TXT, MD",
+    "uploadingAndProcessing": "Téléchargement et traitement...",
+    "projectFiles": "Fichiers du Projet ({count})",
+    "noFilesYet": "Aucun fichier téléchargé. Téléchargez votre premier document ci-dessus."
+  },
+  "delete": {
+    "title": "Supprimer le Projet ?",
+    "fileTitle": "Supprimer le Fichier ?",
+    "projectWarning": "Cela supprimera définitivement le projet et tous ses fichiers. Cette action est irréversible.",
+    "fileWarning": "Cela supprimera définitivement le fichier et ses intégrations. Cette action est irréversible."
+  },
+  "chat": {
+    "backToProject": "Retour au Projet",
+    "embeddedFiles": "{count} fichier intégré",
+    "embeddedFilesPlural": "{count} fichiers intégrés",
+    "chatHistory": "Historique des Discussions",
+    "noChatHistory": "Pas encore d'historique de discussion",
+    "chatSession": "Session de discussion",
+    "chatTitle": "Discutez avec Vos Documents",
+    "chatDescription": "Posez des questions sur vos documents téléchargés. L'IA utilisera le contenu de vos fichiers pour fournir des réponses pertinentes.",
+    "askPlaceholder": "Posez une question sur vos documents...",
+    "noEmbeddedDocuments": "Aucun document intégré trouvé. Téléchargez et attendez que les documents soient traités avant de discuter.",
+    "deleteChat": "Supprimer la Discussion ?",
+    "deleteChatWarning": "Cela supprimera définitivement l'historique de discussion de cette session."
+  }
+}

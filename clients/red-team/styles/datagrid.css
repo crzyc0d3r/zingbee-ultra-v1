@@ -1,0 +1,28 @@
+/* DataGrid shared styles - matches admin table pattern exactly */
+
+.data-grid{display:flex;flex-direction:column;flex:1;overflow:hidden;min-height:0}
+.data-grid .table-wrap{flex:1;overflow:auto;padding:0;min-height:0}
+.data-grid table{width:100%;border-collapse:collapse;font-size:12px}
+.data-grid thead{position:sticky;top:0;z-index:10}
+.data-grid th{background:#0f172a;padding:7px 10px;text-align:left;font-weight:600;color:#94a3b8;font-size:10px;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid #334155;cursor:pointer;user-select:none;white-space:nowrap}
+.data-grid th:hover{color:#e2e8f0}
+.data-grid th .arrow{margin-left:4px;font-size:9px}
+.data-grid td{padding:5px 10px;border-bottom:1px solid #1e293b;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:top}
+.data-grid tr.clickable{cursor:pointer}
+.data-grid tr.clickable:hover td{background:#1e293b}
+.data-grid tr:hover td{background:rgba(30,41,59,.5)}
+.data-grid tr.active td{background:#1e3a5f}
+.data-grid .pagination{padding:8px 20px;background:#16213e;border-top:1px solid #334155;display:flex;gap:8px;align-items:center;font-size:12px;color:#94a3b8;flex-shrink:0}
+.data-grid .pagination .info{margin-right:auto}
+.data-grid .pg-btn{padding:3px 8px;background:#334155;border:none;border-radius:4px;color:#e2e8f0;cursor:pointer;font-size:11px}
+.data-grid .pg-btn:hover{background:#475569}
+.data-grid .pg-btn:disabled{opacity:.4;cursor:default}
+.data-grid .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:120px;color:#475569;font-size:13px;gap:8px}
+.data-grid .empty .ico{font-size:36px;opacity:.3}
+
+/* Responsive */
+@media(max-width:768px){
+.data-grid .pagination{padding:6px 12px;flex-wrap:wrap}
+.data-grid td{padding:4px 8px;font-size:11px}
+.data-grid th{padding:6px 8px}
+}

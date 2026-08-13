@@ -1,0 +1,55 @@
+{
+  "name": "zingbee-redteam-client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test:ui": "playwright test",
+    "test:ui:headed": "playwright test --headed",
+    "test:screenshots": "playwright test --grep @screenshot"
+  },
+  "dependencies": {
+    "@livekit/components-react": "^2.9.20",
+    "@livekit/components-styles": "^1.2.0",
+    "@monaco-editor/react": "^4.7.0",
+    "@xyflow/react": "^12.10.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "d3": "^7.9.0",
+    "dagre": "^0.8.5",
+    "dompurify": "^3.2.4",
+    "elkjs": "^0.11.1",
+    "html2canvas-pro": "1.5.8",
+    "katex": "0.16.11",
+    "livekit-client": "^2.18.0",
+    "lucide-react": "^0.454.0",
+    "marked": "15.0.6",
+    "next": "16.0.10",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@tailwindcss/postcss": "^4.1.9",
+    "@types/d3": "^7.4.3",
+    "@types/dompurify": "^3.2.0",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "baseline-browser-mapping": "^2.9.19",
+    "postcss": "^8.5",
+    "tailwindcss": "^4.1.9",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@10.15.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp",
+      "@tailwindcss/oxide"
+    ]
+  }
+}

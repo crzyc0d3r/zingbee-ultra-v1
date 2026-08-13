@@ -1,0 +1,876 @@
+{
+  "version": "z-sm-v006.11",
+  "changelog": [
+    {
+      "version": "z-sm-v006.11",
+      "date": "2026-07-02",
+      "change": "One fact per session; sessions always teach the FIRST incomplete fact in display order",
+      "before": "v006.10 ended the session only when the LAST fact finished its scaffold; mid-capsule fact completion flowed straight to the next fact's TEACH in the same session (action advance_fact), and a restored session resumed at the saved position even when earlier facts had been skipped — teaching looked out-of-order and skipped facts never returned.",
+      "after": "Every fact completion ends the session: _advance_fact marks the finished fact scaffold_complete, primes the next incomplete fact (display order) at TEACH, sets practice_complete_end, and returns action fact_complete_end (or _end_session_after_practice/EVIDENCE when none remain). restore() clears the end flag AND heals the position to the first incomplete fact in teaching mode, so skipped facts are picked back up in order (or primes EVIDENCE when everything is done). The greeting builder now sources remaining facts from the engine (remaining_fact_texts) instead of report-card facts_taught, removing the prompt-vs-engine split brain. Rows whose action was advance_fact now carry fact_complete_end. Covered by TestPracticeCompletesSession + TestOneFactPerSession."
+    },
+    {
+      "version": "z-sm-v006.10",
+      "date": "2026-07-02",
+      "change": "Learning-system redesign: a session ends when practice ends — EVIDENCE never runs in the same session as teaching",
+      "before": "When the last fact of the last batch finished its TEACH<->TRY scaffold, _advance_batch flowed straight into _start_evidence and the EVIDENCE questions ran in the same session.",
+      "after": "When the last batch completes, _advance_batch calls _end_session_after_practice: the EVIDENCE state is primed (COLLECT, full-capsule queue) but the transition returns action practice_complete_end and should_end_session() becomes true, so the session wraps up after practice. restore() clears the flag, so the NEXT session resumes directly in EVIDENCE (the greeting's all-facts-taught path) and runs the final check -> CAPSULE_COMPLETE. The per-session journey is now RECALL (returning students) -> TEACH -> TRY. Covered by TestPracticeCompletesSession."
+    },
+    {
+      "version": "z-sm-v006.9",
+      "date": "2026-06-30",
+      "change": "Learning-system redesign: remove the CHECK and CHECK_REMEDIATION phases entirely",
+      "before": "Each batch of facts ran a TEACH<->TRY scaffold per fact, then a per-batch CHECK micro-assessment (with a CHECK_REMEDIATION loop on failures) before advancing; EVIDENCE was the final capsule-wide assessment.",
+      "after": "Each fact is just TEACH<->TRY and then flows straight to the next fact; the single closing EVIDENCE step over the whole capsule is now the only assessment gate. CHECK/CHECK_REMEDIATION removed from taxonomy.valid_per_phase and all their transition rows deleted; the batch-complete path (_advance_fact -> _advance_batch) now leads directly to the next batch or EVIDENCE. RECALL is unchanged."
+    },
+    {
+      "version": "z-sm-v006.8",
+      "date": "2026-06-24",
+      "change": "ADO-89: extend the EVIDENCE non-answer wait-guard to the evidence_followup second-chance sub-state",
+      "before": "v006.5 made CHECK/EVIDENCE COLLECT non-answer types wait no-ops, but the evidence_followup arm still hit an else-branch that marked the fact FAILED on a clarifying question during the partial-correct second chance — so the EVIDENCE non-answer rows (condition:any -> wait) were inaccurate for that sub-state.",
+      "after": "non-answer types (question/confirmation/teaching/off_topic) during evidence_followup are now wait no-ops that preserve the follow-up; the condition:any EVIDENCE wait rows are now accurate for all sub-states. Covered by test_evidence_followup_does_not_fail_facts_on_non_answer_types."
+    },
+    {
+      "version": "z-sm-v006.7",
+      "date": "2026-06-24",
+      "change": "ADO #88: encode the ADO #26 flag-gated transitions (first flags!={} rows / the flag matrix)",
+      "before": "Contract encoded only the flags-off (production-default) behavior; TEACH_SIGNAL_FIX and TRY_HINT engine paths were unguarded.",
+      "after": "Added TEACH_SIGNAL_FIX rows (correct/partially_correct during TEACH advance the scaffold; the 2-turn camping diagnostic -> teach_checkpoint -> engagement_guided_try) and TRY_HINT rows (student_wants_hint -> try_hint / hint_cap_reached), plus the flag-off counterparts. Added student_correct/student_partially_correct to TEACH taxonomy. Golden test now drives flag-on rows via _apply_flags."
+    },
+    {
+      "version": "z-sm-v006.6",
+      "date": "2026-06-24",
+      "change": "Fix two TEACH transcription errors found by the behavioral golden test (Task 4)",
+      "before": "TEACH student_understands/confirmation 'scaffold_teach_continue' rows carried condition 'any'",
+      "after": "condition corrected to 'scaffold_next_is_TEACH' — the engine only emits scaffold_teach_continue when the next scaffold step is another TEACH (default [TEACH,TRY] yields scaffold_to_try). The scaffold_next_is_TRY / scaffold_exhausted variants were already separate rows."
+    },
+    {
+      "version": "z-sm-v006.5",
+      "date": "2026-06-23",
+      "change": "Export contract to git; make CHECK/EVIDENCE non-answer types explicit (was silent FAILED)",
+      "before": "CHECK/EVIDENCE else-branch marked any non-answer itype (question, confirmation, teaching, off_topic) FAILED",
+      "after": "non-answer types are no-ops (action=wait) in CHECK/EVIDENCE; only answer types set results"
+    }
+  ],
+  "taxonomy": {
+    "all_types": [
+      "student_correct",
+      "student_partially_correct",
+      "student_incorrect",
+      "student_understands",
+      "student_confused",
+      "student_move_on",
+      "student_question",
+      "teaching",
+      "confirmation",
+      "off_topic",
+      "student_wants_example",
+      "student_wants_explore",
+      "student_wants_hint",
+      "recall_more",
+      "closure_end",
+      "closure_recap"
+    ],
+    "valid_per_phase": {
+      "TEACH": [
+        "student_understands",
+        "confirmation",
+        "student_confused",
+        "student_incorrect",
+        "student_move_on",
+        "student_question",
+        "teaching",
+        "off_topic",
+        "student_wants_example",
+        "student_wants_explore",
+        "student_correct",
+        "student_partially_correct"
+      ],
+      "TRY": [
+        "student_correct",
+        "student_partially_correct",
+        "student_incorrect",
+        "student_confused",
+        "student_move_on",
+        "confirmation",
+        "student_question",
+        "teaching",
+        "off_topic",
+        "student_wants_hint"
+      ],
+      "EVIDENCE": [
+        "student_correct",
+        "student_partially_correct",
+        "student_incorrect",
+        "student_confused",
+        "student_move_on",
+        "student_question",
+        "confirmation",
+        "teaching",
+        "off_topic"
+      ],
+      "RECALL": [
+        "student_correct",
+        "student_incorrect",
+        "student_confused",
+        "teaching",
+        "recall_more"
+      ],
+      "CAPSULE_COMPLETE": [
+        "closure_end",
+        "closure_recap",
+        "student_understands",
+        "confirmation",
+        "student_correct",
+        "student_incorrect",
+        "student_confused",
+        "student_move_on",
+        "student_question",
+        "teaching",
+        "off_topic"
+      ]
+    }
+  },
+  "transitions": [
+    {
+      "_comment": "=== TEACH ===",
+      "from": "TEACH",
+      "itype": "student_understands",
+      "condition": "scaffold_next_is_TEACH",
+      "flags": {},
+      "to": "TEACH",
+      "action": "scaffold_teach_continue",
+      "_note": "advance_scaffold: if next scaffold step is another TEACH"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_understands",
+      "condition": "scaffold_next_is_TRY",
+      "flags": {},
+      "to": "TRY",
+      "action": "scaffold_to_try",
+      "_note": "advance_scaffold: if next scaffold step is TRY"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_understands",
+      "condition": "scaffold_exhausted",
+      "flags": {},
+      "to": "TEACH",
+      "action": "fact_complete_end",
+      "_note": "v006.11: fact scaffold done -> ONE FACT PER SESSION: mark scaffold_complete, prime next incomplete fact (display order) at TEACH, session ends (should_end_session). When no facts remain -> EVIDENCE primed + session end (action practice_complete_end)."
+    },
+    {
+      "from": "TEACH",
+      "itype": "confirmation",
+      "condition": "scaffold_next_is_TEACH",
+      "flags": {},
+      "to": "TEACH",
+      "action": "scaffold_teach_continue",
+      "_note": "same as student_understands — advance_scaffold"
+    },
+    {
+      "from": "TEACH",
+      "itype": "confirmation",
+      "condition": "scaffold_next_is_TRY",
+      "flags": {},
+      "to": "TRY",
+      "action": "scaffold_to_try"
+    },
+    {
+      "from": "TEACH",
+      "itype": "confirmation",
+      "condition": "scaffold_exhausted",
+      "flags": {},
+      "to": "TEACH",
+      "action": "fact_complete_end",
+      "_note": "v006.11: fact scaffold done -> ONE FACT PER SESSION: mark scaffold_complete, prime next incomplete fact (display order) at TEACH, session ends (should_end_session). When no facts remain -> EVIDENCE primed + session end (action practice_complete_end)."
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_confused",
+      "condition": "teach_attempts<3",
+      "flags": {},
+      "to": "TEACH",
+      "action": "reteach_confused"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_confused",
+      "condition": "teach_attempts>=3",
+      "flags": {},
+      "to": "TEACH",
+      "action": "scaffold_teach_continue",
+      "_note": "_force_advance_scaffold -> _advance_scaffold; force advance past confusion limit"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_incorrect",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "misconception_correction"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_move_on",
+      "condition": "TRY_in_remaining_scaffold",
+      "flags": {},
+      "to": "TRY",
+      "action": "move_on_teach_to_try"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_move_on",
+      "condition": "no_TRY_in_remaining_scaffold",
+      "flags": {},
+      "to": "TEACH",
+      "action": "fact_complete_end",
+      "_note": "v006.11: fact scaffold done -> ONE FACT PER SESSION: mark scaffold_complete, prime next incomplete fact (display order) at TEACH, session ends (should_end_session). When no facts remain -> EVIDENCE primed + session end (action practice_complete_end)."
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_wants_example",
+      "condition": "evidence_phase!=REMEDIATION AND engagement_detours<=2",
+      "flags": {},
+      "to": "TEACH",
+      "action": "teach_example"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_wants_example",
+      "condition": "evidence_phase!=REMEDIATION AND engagement_detours>2",
+      "flags": {},
+      "to": "TRY",
+      "action": "engagement_guided_try"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_wants_example",
+      "condition": "evidence_phase==REMEDIATION",
+      "flags": {},
+      "to": "TEACH",
+      "action": "wait"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_wants_explore",
+      "condition": "evidence_phase!=REMEDIATION AND engagement_detours<=2",
+      "flags": {},
+      "to": "TEACH",
+      "action": "teach_explore"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_wants_explore",
+      "condition": "evidence_phase!=REMEDIATION AND engagement_detours>2",
+      "flags": {},
+      "to": "TRY",
+      "action": "engagement_guided_try"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_wants_explore",
+      "condition": "evidence_phase==REMEDIATION",
+      "flags": {},
+      "to": "TEACH",
+      "action": "wait"
+    },
+    {
+      "from": "TEACH",
+      "itype": "teaching",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "wait"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_question",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "wait"
+    },
+    {
+      "from": "TEACH",
+      "itype": "off_topic",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "wait"
+    },
+    {
+      "_comment": "=== TRY ===",
+      "from": "TRY",
+      "itype": "student_correct",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "fact_complete_end",
+      "_note": "v006.11: fact scaffold done -> ONE FACT PER SESSION: mark scaffold_complete, prime next incomplete fact (display order) at TEACH, session ends (should_end_session). When no facts remain -> EVIDENCE primed + session end (action practice_complete_end)."
+    },
+    {
+      "from": "TRY",
+      "itype": "student_partially_correct",
+      "condition": "try_attempts>=2",
+      "flags": {},
+      "to": "TEACH",
+      "action": "fact_complete_end",
+      "_note": "v006.11: fact scaffold done -> ONE FACT PER SESSION: mark scaffold_complete, prime next incomplete fact (display order) at TEACH, session ends (should_end_session). When no facts remain -> EVIDENCE primed + session end (action practice_complete_end)."
+    },
+    {
+      "from": "TRY",
+      "itype": "student_partially_correct",
+      "condition": "try_attempts<2",
+      "flags": {},
+      "to": "TRY",
+      "action": "feedback_reassess"
+    },
+    {
+      "from": "TRY",
+      "itype": "student_incorrect",
+      "condition": "try_attempts>=3",
+      "flags": {},
+      "to": "TEACH",
+      "action": "fact_complete_end",
+      "_note": "v006.11: fact scaffold done -> ONE FACT PER SESSION: mark scaffold_complete, prime next incomplete fact (display order) at TEACH, session ends (should_end_session). When no facts remain -> EVIDENCE primed + session end (action practice_complete_end)."
+    },
+    {
+      "from": "TRY",
+      "itype": "student_incorrect",
+      "condition": "try_attempts>=2 AND try_attempts<3",
+      "flags": {},
+      "to": "TEACH",
+      "action": "try_reteach"
+    },
+    {
+      "from": "TRY",
+      "itype": "student_incorrect",
+      "condition": "try_attempts<2",
+      "flags": {},
+      "to": "TRY",
+      "action": "hint_reassess"
+    },
+    {
+      "from": "TRY",
+      "itype": "student_confused",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "try_confused_reteach"
+    },
+    {
+      "from": "TRY",
+      "itype": "student_move_on",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "fact_complete_end",
+      "_note": "v006.11: fact scaffold done -> ONE FACT PER SESSION: mark scaffold_complete, prime next incomplete fact (display order) at TEACH, session ends (should_end_session). When no facts remain -> EVIDENCE primed + session end (action practice_complete_end)."
+    },
+    {
+      "from": "TRY",
+      "itype": "confirmation",
+      "condition": "any",
+      "flags": {},
+      "to": "TRY",
+      "action": "wait"
+    },
+    {
+      "from": "TRY",
+      "itype": "student_question",
+      "condition": "any",
+      "flags": {},
+      "to": "TRY",
+      "action": "wait"
+    },
+    {
+      "from": "TRY",
+      "itype": "off_topic",
+      "condition": "any",
+      "flags": {},
+      "to": "TRY",
+      "action": "wait"
+    },
+    {
+      "from": "TRY",
+      "itype": "teaching",
+      "condition": "any",
+      "flags": {},
+      "to": "TRY",
+      "action": "wait"
+    },
+    {
+      "_comment": "=== EVIDENCE (COLLECT sub-phase) === NOTE: non-answer types are wait no-ops (resolved v006.5 — engine now guards these explicitly instead of falling through else-branch)",
+      "from": "EVIDENCE",
+      "itype": "student_correct",
+      "condition": "evidence_followup==false AND queue_has_next",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "evidence_next",
+      "_note": "MASTERED; advance queue to next fact"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_correct",
+      "condition": "evidence_followup==false AND queue_empty_after_pop",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "FULLY_MASTERED",
+      "_note": "_complete_capsule; action is the capsule status string"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_correct",
+      "condition": "evidence_followup==true AND queue_has_next",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "evidence_next",
+      "_note": "followup pass -> MASTERED; advance queue"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_correct",
+      "condition": "evidence_followup==true AND queue_empty_after_pop",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "FULLY_MASTERED"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_partially_correct",
+      "condition": "evidence_followup==false",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "evidence_followup",
+      "_note": "One follow-up chance; stay on same fact, don't pop queue"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_partially_correct",
+      "condition": "evidence_followup==true AND queue_has_next",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "evidence_next",
+      "_note": "followup pass (partial counts as pass on second chance) -> MASTERED"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_partially_correct",
+      "condition": "evidence_followup==true AND queue_empty_after_pop",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "FULLY_MASTERED"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_incorrect",
+      "condition": "evidence_followup==false AND queue_has_next",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "evidence_next",
+      "_note": "FAILED; advance queue"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_incorrect",
+      "condition": "evidence_followup==false AND queue_empty_after_pop AND evidence_failed_nonempty",
+      "flags": {},
+      "to": "TEACH",
+      "action": "evidence_remediation_LIGHT",
+      "_note": "_evidence_remediate; tier depends on failure rate; LIGHT shown as representative"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_incorrect",
+      "condition": "evidence_followup==false AND queue_empty_after_pop AND evidence_failed_empty",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "COMPLETED_WITH_GAPS"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_incorrect",
+      "condition": "evidence_followup==true AND queue_has_next",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "evidence_next",
+      "_note": "followup fail -> FAILED"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_incorrect",
+      "condition": "evidence_followup==true AND queue_empty_after_pop",
+      "flags": {},
+      "to": "TEACH",
+      "action": "evidence_remediation_LIGHT"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_confused",
+      "condition": "evidence_followup==false AND queue_has_next",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "evidence_next",
+      "_note": "FAILED; advance queue"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_confused",
+      "condition": "evidence_followup==false AND queue_empty_after_pop AND evidence_failed_nonempty",
+      "flags": {},
+      "to": "TEACH",
+      "action": "evidence_remediation_LIGHT"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_confused",
+      "condition": "evidence_followup==false AND queue_empty_after_pop AND evidence_failed_empty",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "COMPLETED_WITH_GAPS"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_confused",
+      "condition": "evidence_followup==true AND queue_has_next",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "evidence_next"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_confused",
+      "condition": "evidence_followup==true AND queue_empty_after_pop",
+      "flags": {},
+      "to": "TEACH",
+      "action": "evidence_remediation_LIGHT"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_move_on",
+      "condition": "evidence_followup==false AND queue_has_next",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "evidence_next",
+      "_note": "FORFEITED; advance queue"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_move_on",
+      "condition": "evidence_followup==false AND queue_empty_after_pop",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "COMPLETED_WITH_GAPS"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_move_on",
+      "condition": "evidence_followup==true AND queue_has_next",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "evidence_next",
+      "_note": "Forfeit exits mid-followup honestly"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_move_on",
+      "condition": "evidence_followup==true AND queue_empty_after_pop",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "COMPLETED_WITH_GAPS"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "student_question",
+      "condition": "any",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "wait",
+      "_note": "non-answer type is a wait no-op (resolved v006.5)"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "confirmation",
+      "condition": "any",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "wait",
+      "_note": "non-answer type is a wait no-op (resolved v006.5)"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "teaching",
+      "condition": "any",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "wait",
+      "_note": "non-answer type is a wait no-op (resolved v006.5)"
+    },
+    {
+      "from": "EVIDENCE",
+      "itype": "off_topic",
+      "condition": "any",
+      "flags": {},
+      "to": "EVIDENCE",
+      "action": "wait",
+      "_note": "non-answer type is a wait no-op (resolved v006.5)"
+    },
+    {
+      "_comment": "=== RECALL ===",
+      "from": "RECALL",
+      "itype": "recall_more",
+      "condition": "recall_turns<2",
+      "flags": {},
+      "to": "RECALL",
+      "action": "recall_engage"
+    },
+    {
+      "from": "RECALL",
+      "itype": "recall_more",
+      "condition": "recall_turns>=2",
+      "flags": {},
+      "to": "TEACH",
+      "action": "transition_to_teach"
+    },
+    {
+      "from": "RECALL",
+      "itype": "student_correct",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "transition_to_teach"
+    },
+    {
+      "from": "RECALL",
+      "itype": "student_incorrect",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "transition_to_teach"
+    },
+    {
+      "from": "RECALL",
+      "itype": "student_confused",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "transition_to_teach"
+    },
+    {
+      "from": "RECALL",
+      "itype": "teaching",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "transition_to_teach"
+    },
+    {
+      "_comment": "=== CAPSULE_COMPLETE (closure flow) ===",
+      "from": "CAPSULE_COMPLETE",
+      "itype": "closure_end",
+      "condition": "any",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "closure_end"
+    },
+    {
+      "from": "CAPSULE_COMPLETE",
+      "itype": "student_move_on",
+      "condition": "any",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "closure_end",
+      "_note": "student_move_on is in _CLOSURE_END_TYPES"
+    },
+    {
+      "from": "CAPSULE_COMPLETE",
+      "itype": "closure_recap",
+      "condition": "closure_state==offered",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "closure_recap"
+    },
+    {
+      "from": "CAPSULE_COMPLETE",
+      "itype": "student_understands",
+      "condition": "closure_state==offered",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "closure_recap",
+      "_note": "Not in _CLOSURE_END_TYPES -> treated as recap request"
+    },
+    {
+      "from": "CAPSULE_COMPLETE",
+      "itype": "confirmation",
+      "condition": "closure_state==offered",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "closure_recap"
+    },
+    {
+      "from": "CAPSULE_COMPLETE",
+      "itype": "student_correct",
+      "condition": "closure_state==offered",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "closure_recap"
+    },
+    {
+      "from": "CAPSULE_COMPLETE",
+      "itype": "student_incorrect",
+      "condition": "closure_state==offered",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "closure_recap"
+    },
+    {
+      "from": "CAPSULE_COMPLETE",
+      "itype": "student_confused",
+      "condition": "closure_state==offered",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "closure_recap"
+    },
+    {
+      "from": "CAPSULE_COMPLETE",
+      "itype": "student_question",
+      "condition": "closure_state==offered",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "closure_recap"
+    },
+    {
+      "from": "CAPSULE_COMPLETE",
+      "itype": "teaching",
+      "condition": "closure_state==offered",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "closure_recap"
+    },
+    {
+      "from": "CAPSULE_COMPLETE",
+      "itype": "off_topic",
+      "condition": "closure_state==offered",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "closure_recap"
+    },
+    {
+      "from": "CAPSULE_COMPLETE",
+      "itype": "closure_end",
+      "condition": "closure_state==recap_done",
+      "flags": {},
+      "to": "CAPSULE_COMPLETE",
+      "action": "closure_end",
+      "_note": "After recap is given, any reply ends"
+    },
+    {
+      "_comment": "=== ADO #26 flag-gated: TEACH_SIGNAL_FIX ===",
+      "from": "TEACH",
+      "itype": "student_correct",
+      "condition": "signal_fix AND scaffold_next_is_TRY AND evidence_phase!=REMEDIATION",
+      "flags": {
+        "TEACH_SIGNAL_FIX": true
+      },
+      "to": "TRY",
+      "action": "scaffold_to_try",
+      "_note": "TEACH_SIGNAL_FIX: a correct answer during TEACH is an understanding signal -> _advance_scaffold"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_partially_correct",
+      "condition": "signal_fix AND scaffold_next_is_TRY AND evidence_phase!=REMEDIATION",
+      "flags": {
+        "TEACH_SIGNAL_FIX": true
+      },
+      "to": "TRY",
+      "action": "scaffold_to_try",
+      "_note": "as above for a partially-correct answer"
+    },
+    {
+      "from": "TEACH",
+      "itype": "teaching",
+      "condition": "signal_fix AND teach_wait_turns<1 AND evidence_phase!=REMEDIATION",
+      "flags": {
+        "TEACH_SIGNAL_FIX": true
+      },
+      "to": "TEACH",
+      "action": "wait",
+      "_note": "first non-advancing substantive turn: camp counter 0->1, still wait"
+    },
+    {
+      "from": "TEACH",
+      "itype": "teaching",
+      "condition": "signal_fix AND teach_wait_turns>=1 AND not_checkpoint AND evidence_phase!=REMEDIATION",
+      "flags": {
+        "TEACH_SIGNAL_FIX": true
+      },
+      "to": "TEACH",
+      "action": "teach_checkpoint",
+      "_note": "second consecutive non-advancing turn -> one diagnostic check-question"
+    },
+    {
+      "from": "TEACH",
+      "itype": "teaching",
+      "condition": "signal_fix AND teach_checkpoint_done AND evidence_phase!=REMEDIATION",
+      "flags": {
+        "TEACH_SIGNAL_FIX": true
+      },
+      "to": "TRY",
+      "action": "engagement_guided_try",
+      "_note": "checkpoint already ran and still not advancing -> guided TRY, never a silent skip"
+    },
+    {
+      "_comment": "=== TEACH answer types with TEACH_SIGNAL_FIX OFF (default) ===",
+      "from": "TEACH",
+      "itype": "student_correct",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "wait",
+      "_note": "flag off: a correct answer during TEACH is not an advance signal -> wait"
+    },
+    {
+      "from": "TEACH",
+      "itype": "student_partially_correct",
+      "condition": "any",
+      "flags": {},
+      "to": "TEACH",
+      "action": "wait",
+      "_note": "flag off: wait"
+    },
+    {
+      "_comment": "=== ADO #26 flag-gated: TRY_HINT ===",
+      "from": "TRY",
+      "itype": "student_wants_hint",
+      "condition": "TRY_HINT_off",
+      "flags": {},
+      "to": "TRY",
+      "action": "wait",
+      "_note": "flag off: hint chip routes here as a no-op wait"
+    },
+    {
+      "from": "TRY",
+      "itype": "student_wants_hint",
+      "condition": "hints_given<2",
+      "flags": {
+        "TRY_HINT": true
+      },
+      "to": "TRY",
+      "action": "try_hint",
+      "_note": "on-demand hint: does NOT count as a try attempt, does NOT advance; capped at 2"
+    },
+    {
+      "from": "TRY",
+      "itype": "student_wants_hint",
+      "condition": "hints_given>=2",
+      "flags": {
+        "TRY_HINT": true
+      },
+      "to": "TRY",
+      "action": "hint_cap_reached",
+      "_note": "hint cap reached"
+    }
+  ]
+}

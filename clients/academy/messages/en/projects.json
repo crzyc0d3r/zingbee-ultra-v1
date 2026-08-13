@@ -1,0 +1,49 @@
+{
+  "list": {
+    "title": "My Projects",
+    "subtitle": "Upload documents and chat with your project files using AI",
+    "noProjectsTitle": "No Projects Yet",
+    "noProjectsDescription": "Create a project to upload documents and chat with them using AI.",
+    "createFirstProject": "Create Your First Project",
+    "files": "files",
+    "file": "file"
+  },
+  "create": {
+    "title": "Create New Project",
+    "projectName": "Project Name",
+    "projectNamePlaceholder": "Enter project name",
+    "description": "Description (optional)",
+    "descriptionPlaceholder": "Describe your project",
+    "createButton": "Create Project"
+  },
+  "detail": {
+    "backToProjects": "Back to Projects",
+    "clickToAddDescription": "Click to add a description",
+    "chatWithDocuments": "Chat with Documents",
+    "uploadTitle": "Drop files here or click to upload",
+    "uploadSubtitle": "Supports PDF, DOCX, TXT, MD files",
+    "uploadingAndProcessing": "Uploading and processing...",
+    "projectFiles": "Project Files ({count})",
+    "noFilesYet": "No files uploaded yet. Upload your first document above."
+  },
+  "delete": {
+    "title": "Delete Project?",
+    "fileTitle": "Delete File?",
+    "projectWarning": "This will permanently delete the project and all its files. This action cannot be undone.",
+    "fileWarning": "This will permanently delete the file and its embeddings. This action cannot be undone."
+  },
+  "chat": {
+    "backToProject": "Back to Project",
+    "embeddedFiles": "{count} embedded file",
+    "embeddedFilesPlural": "{count} embedded files",
+    "chatHistory": "Chat History",
+    "noChatHistory": "No chat history yet",
+    "chatSession": "Chat session",
+    "chatTitle": "Chat with Your Documents",
+    "chatDescription": "Ask questions about your uploaded documents. The AI will use the content of your files to provide relevant answers.",
+    "askPlaceholder": "Ask a question about your documents...",
+    "noEmbeddedDocuments": "No embedded documents found. Upload and wait for documents to be processed before chatting.",
+    "deleteChat": "Delete Chat?",
+    "deleteChatWarning": "This will permanently remove the chat history for this session."
+  }
+}

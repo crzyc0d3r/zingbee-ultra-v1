@@ -1,0 +1,148 @@
+{
+  "topicQuestions": {
+    "Algebra": {
+      "q1": "What are variables and how do I use them?",
+      "q2": "How do I solve for x in an equation?",
+      "q3": "Explain linear equations to me",
+      "q4": "Show me how to factor polynomials"
+    },
+    "Geometry": {
+      "q1": "What are the basic shapes and their properties?",
+      "q2": "How do I calculate area and perimeter?",
+      "q3": "Explain angles and how to measure them",
+      "q4": "Teach me about triangles and their rules"
+    },
+    "Calculus": {
+      "q1": "What is a derivative and why is it useful?",
+      "q2": "How do I find limits of functions?",
+      "q3": "Explain integration to me",
+      "q4": "Show me how to solve rate of change problems"
+    },
+    "Statistics": {
+      "q1": "What is mean, median, and mode?",
+      "q2": "How do I calculate probability?",
+      "q3": "Explain standard deviation",
+      "q4": "Show me how to interpret data graphs"
+    },
+    "Trigonometry": {
+      "q1": "What are sine, cosine, and tangent?",
+      "q2": "How do I use the unit circle?",
+      "q3": "Explain trigonometric identities",
+      "q4": "Show me how to solve triangle problems"
+    },
+    "NumberTheory": {
+      "q1": "What are prime numbers?",
+      "q2": "How do I find factors and multiples?",
+      "q3": "Explain divisibility rules",
+      "q4": "Show me patterns in numbers"
+    },
+    "Grammar": {
+      "q1": "What are the parts of speech?",
+      "q2": "How do I use commas correctly?",
+      "q3": "Explain verb tenses to me",
+      "q4": "Show me how to fix sentence fragments"
+    },
+    "Writing": {
+      "q1": "How do I write a strong paragraph?",
+      "q2": "What makes a good thesis statement?",
+      "q3": "Explain different essay structures",
+      "q4": "Show me how to improve my writing style"
+    },
+    "ReadingComprehension": {
+      "q1": "How do I identify the main idea?",
+      "q2": "What are context clues?",
+      "q3": "Explain how to make inferences",
+      "q4": "Show me how to summarize a passage"
+    },
+    "Vocabulary": {
+      "q1": "How can I learn new words effectively?",
+      "q2": "What are root words and affixes?",
+      "q3": "Explain synonyms and antonyms",
+      "q4": "Show me how to use words in context"
+    },
+    "Literature": {
+      "q1": "How do I analyze a story?",
+      "q2": "What are literary devices?",
+      "q3": "Explain themes and symbolism",
+      "q4": "Show me how to understand poetry"
+    },
+    "CreativeWriting": {
+      "q1": "How do I create interesting characters?",
+      "q2": "What makes a good story plot?",
+      "q3": "Explain different writing styles",
+      "q4": "Show me how to write dialogue"
+    },
+    "CellBiology": {
+      "q1": "What is a cell and what does it do?",
+      "q2": "How do cells divide and reproduce?",
+      "q3": "Explain the parts of a cell",
+      "q4": "Show me the difference between plant and animal cells"
+    },
+    "Genetics": {
+      "q1": "What is DNA and how does it work?",
+      "q2": "How do traits pass from parents to children?",
+      "q3": "Explain dominant and recessive genes",
+      "q4": "Show me how genetic mutations happen"
+    },
+    "Ecology": {
+      "q1": "What is an ecosystem?",
+      "q2": "How do food chains work?",
+      "q3": "Explain the water cycle",
+      "q4": "Show me how organisms interact"
+    },
+    "HumanBody": {
+      "q1": "How does the circulatory system work?",
+      "q2": "What do different organs do?",
+      "q3": "Explain how we digest food",
+      "q4": "Show me how the brain controls the body"
+    },
+    "Evolution": {
+      "q1": "What is natural selection?",
+      "q2": "How do species adapt over time?",
+      "q3": "Explain evidence for evolution",
+      "q4": "Show me examples of adaptation"
+    },
+    "Microbiology": {
+      "q1": "What are bacteria and viruses?",
+      "q2": "How do microorganisms affect us?",
+      "q3": "Explain the immune system",
+      "q4": "Show me how diseases spread"
+    },
+    "Quran": {
+      "q1": "How is the Quran organized?",
+      "q2": "What are the main themes in the Quran?",
+      "q3": "Explain how to recite with tajweed",
+      "q4": "Show me the meaning of a surah"
+    },
+    "Hadith": {
+      "q1": "What is a hadith and why is it important?",
+      "q2": "How do we verify authentic hadiths?",
+      "q3": "Explain famous hadith collections",
+      "q4": "Show me examples of the Prophet's teachings"
+    },
+    "Fiqh": {
+      "q1": "What are the pillars of Islam?",
+      "q2": "How do I perform wudu correctly?",
+      "q3": "Explain the rules of prayer",
+      "q4": "Show me how to calculate zakat"
+    },
+    "IslamicHistory": {
+      "q1": "Tell me about the life of Prophet Muhammad",
+      "q2": "What happened during the early caliphate?",
+      "q3": "Explain important Islamic empires",
+      "q4": "Show me how Islam spread around the world"
+    },
+    "Aqeedah": {
+      "q1": "What are the six articles of faith?",
+      "q2": "How do we understand Allah's attributes?",
+      "q3": "Explain the concept of tawhid",
+      "q4": "Show me the importance of belief"
+    },
+    "ArabicLanguage": {
+      "q1": "How do I read Arabic letters?",
+      "q2": "What are basic Arabic words I should know?",
+      "q3": "Explain Arabic grammar basics",
+      "q4": "Show me how to write in Arabic"
+    }
+  }
+}

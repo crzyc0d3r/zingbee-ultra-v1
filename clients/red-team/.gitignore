@@ -1,0 +1,31 @@
+.next/
+node_modules/
+out/
+.env*.local
+*.tsbuildinfo
+next-env.d.ts
+.ref-*.html
+
+# Playwright
+ui-tests/screenshots/
+ui-tests/auth.json
+test-results/
+playwright-report/
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+__MACOSX/
+
+# Windows
+Thumbs.db
+ehthumbs.db
